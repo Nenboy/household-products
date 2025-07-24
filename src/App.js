@@ -1,11 +1,13 @@
 import React from 'react'
-import Profile from './pages/Profile';
+// import Profile from './pages/Profile';
 import './App.css'
+import Homepage from './pages/Home/Home'
 
 function App() {
   return (
     <div>
-      <Profile/>
+      <Homepage />
+      {/* <Profile/> */}
     </div>
   )
 }
