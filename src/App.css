@@ -1,4 +1,8 @@
-/* profile */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .app {
   min-height: 100vh;
   background-color: #f9fafb;
