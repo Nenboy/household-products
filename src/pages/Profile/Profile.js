@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import './Profile.css';
 import {
   User,
   Heart,
@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import { ImageWithFallback } from '../../components/ImageWithFallback';
 
-export default function App() {
+export default function Profile() {
   const profileImage = 'https://images.unsplash.com/photo-1494790108755-2616b612b567?w=150&h=150&fit=crop&crop=face';
 
   const menuItems = [
