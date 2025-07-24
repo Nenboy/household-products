@@ -1,5 +1,9 @@
 import React from 'react';
+
 import './Profile.css';
+
+import '../../App.css';
+
 import {
   User,
   Heart,
