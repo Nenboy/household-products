@@ -1,0 +1,209 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-left, .header-right {
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-dots span {
+  display: block;
+  width: 5px;
+  height: 5px;
+  background-color: #333;
+  border-radius: 50%;
+  margin: 2px 0;
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.profile-circle {
+  width: 30px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+
+/* Main Content */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-icon {
+  margin: 30px 0;
+  color: #ccc;
+}
+
+.empty-text h2 {
+  font-size: 24px;
+  margin: 5px 0;
+}
+
+.create-button {
+  margin-top: 20px;
+  padding: 10px 24px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+}
+
+/* Create Room */
+.create-room {
+  text-align: center;
+}
+
+.room-image img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.create-content h2 {
+  font-size: 22px;
+}
+
+.next-button {
+  margin-top: 16px;
+  padding: 10px 20px;
+  background-color: #0077ff;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+}
+
+/* Board & Dream */
+.board-list, .dream-list {
+  display: grid;
+  gap: 16px;
+}
+
+.board-item, .dream-item {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.item-details h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.item-details p {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 4px;
+}
+
+.item-price {
+  font-weight: bold;
+  color: #222;
+}
+
+/* Add More Button */
+.add-more-button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  width: 100%;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  padding: 8px;
+  color: #999;
+}
+
+.nav-item.active {
+  color: #000;
+}
+
+/* Demo Buttons */
+.demo-nav {
+  position: fixed;
+  bottom: 70px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.demo-nav button {
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
