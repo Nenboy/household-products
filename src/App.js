@@ -1,22 +1,20 @@
 import React from 'react'
-<<<<<<< Updated upstream
+
+// import Profile from './pages/Profile';
 import Profile from './pages/Profile';
-=======
+
 import { Routes, Route } from 'react-router-dom'
 import Profile from './pages/Profile/Profile';
->>>>>>> Stashed changes
 import './App.css'
+import Homepage from './pages/Home/Home'
 
 function App() {
   return (
     <div>
-<<<<<<< Updated upstream
-=======
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/profile" element={<Profile />}
       </Routes>
->>>>>>> Stashed changes
-      <Profile/>
     </div>
   )
 }
