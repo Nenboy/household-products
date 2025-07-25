@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import './Profile.css';
+import { useNavigate } from 'react-router-dom';
 
-const EditProfile = ({ userData = {}, setUserData, onNavigate }) => {
+const EditProfile = ({ userData = {}, setUserData }) => {
+  const navigate = useNavigate();
+
   const avatarOptions = [
     'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
     'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
@@ -42,10 +45,16 @@ const EditProfile = ({ userData = {}, setUserData, onNavigate }) => {
     setShowSuccess(true);
     setTimeout(() => {
       setShowSuccess(false);
-      setTimeout(() => {
-        onNavigate('profile');
-      }, 500);
+      navigate('/profile'); // 👈 Navigate to /profile after saving
     }, 2000);
+  };
+
+  const handleCancel = () => {
+    navigate('/profile'); // 👈 Navigate to /profile on cancel
+  };
+
+  const handleBack = () => {
+    navigate(-1); // 👈 Go back to previous page
   };
 
   if (showSuccess) {
@@ -63,7 +72,7 @@ const EditProfile = ({ userData = {}, setUserData, onNavigate }) => {
   return (
     <div className="page">
       <div className="page-header">
-        <button className="back-button" onClick={() => onNavigate('profile')}>
+        <button className="back-button" onClick={handleBack}>
           ←
         </button>
         <h1 className="page-title">Edit Profile</h1>
@@ -150,7 +159,7 @@ const EditProfile = ({ userData = {}, setUserData, onNavigate }) => {
         Save Changes
       </button>
 
-      <button className="btn-secondary" onClick={() => onNavigate('profile')}>
+      <button className="btn-secondary" onClick={handleCancel}>
         Cancel
       </button>
     </div>

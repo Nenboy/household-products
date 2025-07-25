@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './Profile.css';
+import { useNavigate } from 'react-router-dom';
 
-const MyOrders = ({ onNavigate }) => {
+const MyOrders = () => {
   const [orders] = useState([
     {
       id: 'ORD-001',
@@ -33,6 +34,8 @@ const MyOrders = ({ onNavigate }) => {
     }
   ]);
 
+  const navigate = useNavigate();
+
   const getStatusClass = (status) => {
     switch (status) {
       case 'delivered':
@@ -46,10 +49,18 @@ const MyOrders = ({ onNavigate }) => {
     }
   };
 
+  const handleBack = () => {
+    if (window.history.length > 2) {
+      navigate(-1); // Go back if browser has history
+    } else {
+      navigate('/profile'); // Fallback
+    }
+  };
+
   return (
     <div className="page">
       <div className="page-header">
-        <button className="back-button" onClick={() => onNavigate('profile')}>
+        <button className="back-button" onClick={handleBack}>
           ←
         </button>
         <h1 className="page-title">My Orders</h1>
@@ -72,7 +83,7 @@ const MyOrders = ({ onNavigate }) => {
       </div>
 
       {orders.length === 0 && (
-        <div style={{ textAlign: 'center', marginTop: '50px', color: '#666' }}>
+        <div className="no-orders">
           <p>No orders found</p>
           <p>Start shopping to see your orders here!</p>
         </div>

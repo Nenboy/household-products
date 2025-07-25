@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Profile.css';
+
 const Settings = ({ onNavigate, isDarkMode, setIsDarkMode }) => {
+  const navigate = useNavigate(); // For react-router navigation
+
   const [settings, setSettings] = useState({
     biometricAuth: true,
     autoSync: true,
@@ -13,95 +17,41 @@ const Settings = ({ onNavigate, isDarkMode, setIsDarkMode }) => {
     if (key === 'darkMode') {
       setIsDarkMode(!isDarkMode);
     } else {
-      setSettings({
-        ...settings,
-        [key]: !settings[key]
-      });
+      setSettings((prev) => ({
+        ...prev,
+        [key]: !prev[key]
+      }));
     }
   };
 
-  const handleLanguageChange = () => {
-    alert('Language selection would open here');
-  };
-
-  const handleCurrencyChange = () => {
-    alert('Currency selection would open here');
-  };
-
-  const handlePrivacyPolicy = () => {
-    alert('Privacy Policy would open here');
-  };
-
-  const handleTermsOfService = () => {
-    alert('Terms of Service would open here');
+  const handleBack = () => {
+    if (onNavigate) {
+      onNavigate('profile'); // Internal navigation handler if provided
+    } else {
+      navigate(-1); // Go back in browser history
+    }
   };
 
   const settingsToggles = [
-    {
-      key: 'darkMode',
-      title: 'Dark Mode',
-      subtitle: 'Switch to dark theme',
-      value: isDarkMode
-    },
-    {
-      key: 'biometricAuth',
-      title: 'Biometric Authentication',
-      subtitle: 'Use fingerprint or face ID',
-      value: settings.biometricAuth
-    },
-    {
-      key: 'autoSync',
-      title: 'Auto Sync',
-      subtitle: 'Automatically sync your data',
-      value: settings.autoSync
-    },
-    {
-      key: 'dataUsage',
-      title: 'Reduce Data Usage',
-      subtitle: 'Load images in lower quality',
-      value: settings.dataUsage
-    },
-    {
-      key: 'location',
-      title: 'Location Services',
-      subtitle: 'Allow location access for delivery',
-      value: settings.location
-    },
-    {
-      key: 'analytics',
-      title: 'Usage Analytics',
-      subtitle: 'Help improve the app',
-      value: settings.analytics
-    }
+    { key: 'darkMode', title: 'Dark Mode', subtitle: 'Switch to dark theme', value: isDarkMode },
+    { key: 'biometricAuth', title: 'Biometric Authentication', subtitle: 'Use fingerprint or face ID', value: settings.biometricAuth },
+    { key: 'autoSync', title: 'Auto Sync', subtitle: 'Automatically sync your data', value: settings.autoSync },
+    { key: 'dataUsage', title: 'Reduce Data Usage', subtitle: 'Load images in lower quality', value: settings.dataUsage },
+    { key: 'location', title: 'Location Services', subtitle: 'Allow location access for delivery', value: settings.location },
+    { key: 'analytics', title: 'Usage Analytics', subtitle: 'Help improve the app', value: settings.analytics }
   ];
 
   const menuItems = [
-    {
-      title: 'Language',
-      subtitle: 'English',
-      action: handleLanguageChange
-    },
-    {
-      title: 'Currency',
-      subtitle: 'USD ($)',
-      action: handleCurrencyChange
-    },
-    {
-      title: 'Privacy Policy',
-      subtitle: 'Read our privacy policy',
-      action: handlePrivacyPolicy
-    },
-    {
-      title: 'Terms of Service',
-      subtitle: 'Read our terms of service',
-      action: handleTermsOfService
-    }
+    { title: 'Language', subtitle: 'English', action: () => alert('Language selection would open here') },
+    { title: 'Currency', subtitle: 'USD ($)', action: () => alert('Currency selection would open here') },
+    { title: 'Privacy Policy', subtitle: 'Read our privacy policy', action: () => alert('Privacy Policy would open here') },
+    { title: 'Terms of Service', subtitle: 'Read our terms of service', action: () => alert('Terms of Service would open here') }
   ];
 
   return (
     <div className="page">
       <div className="page-header">
-        <button className="back-button" onClick={() => onNavigate('profile')}>
+        <button className="back-button" onClick={handleBack}>
           ←
         </button>
         <h1 className="page-title">Settings</h1>

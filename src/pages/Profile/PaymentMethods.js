@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import './Profile.css';
-const PaymentMethods = ({ onNavigate }) => {
+import { useNavigate } from 'react-router-dom';
+
+const PaymentMethods = () => {
+  const navigate = useNavigate();
+
   const [paymentMethods, setPaymentMethods] = useState([
     {
       id: 1,
@@ -44,10 +48,18 @@ const PaymentMethods = ({ onNavigate }) => {
     setPaymentMethods([...paymentMethods, newMethod]);
   };
 
+  const handleBack = () => {
+    if (window.history.length > 2) {
+      navigate(-1);
+    } else {
+      navigate('/profile');
+    }
+  };
+
   return (
     <div className="page">
       <div className="page-header">
-        <button className="back-button" onClick={() => onNavigate('profile')}>
+        <button className="back-button" onClick={handleBack}>
           ←
         </button>
         <h1 className="page-title">Payment Methods</h1>

@@ -1,9 +1,6 @@
 import React from 'react';
-
 import './Profile.css';
-
 import '../../App.css';
-
 import {
   User,
   Heart,
@@ -18,70 +15,67 @@ import {
   Edit,
 } from 'lucide-react';
 import { ImageWithFallback } from '../../components/ImageWithFallback';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Profile() {
-  const profileImage = 'https://images.unsplash.com/photo-1494790108755-2616b612b567?w=150&h=150&fit=crop&crop=face';
+  const profileImage =
+    'https://images.unsplash.com/photo-1494790108755-2616b612b567?w=150&h=150&fit=crop&crop=face';
 
   const menuItems = [
-    { icon: Shield, label: 'Privacy Policy' },
-    { icon: CreditCard, label: 'Payment Methods' },
-    { icon: Bell, label: 'Notification' },
-    { icon: Settings, label: 'Settings' },
-    { icon: HelpCircle, label: 'Help' },
-    { icon: LogOut, label: 'Logout' },
+    { icon: Shield, label: 'Privacy Policy', path: '/profile/privacy-policy' },
+    { icon: CreditCard, label: 'Payment Methods', path: '/profile/payment-methods' },
+    { icon: Bell, label: 'Notification', path: '/profile/notification' },
+    { icon: Settings, label: 'Settings', path: '/profile/settings' },
+    { icon: HelpCircle, label: 'Help', path: '/profile/help' },
+    { icon: LogOut, label: 'Logout', path: '/profile/logout' },
   ];
+  const navigate = useNavigate();
 
-  const handleBack = () => {
-    // Handle back navigation
-    console.log('Back button clicked');
-  };
-
-  const handleEdit = () => {
-    // Handle edit profile
-    console.log('Edit button clicked');
-  };
+const handleBack = () => {
+  navigate('/'); 
+};
 
   return (
     <div className="app">
       <div className="profile-container">
         <div className="header">
-          {/* Top Navigation */}
           <div className="top-nav">
-            <button className="nav-button back-button" onClick={handleBack}>
+            <Link to="/" className="nav-button back-button" onClick={handleBack}>
               <ArrowLeft size={20} />
-            </button>
-            <h1>My Profile</h1>
-            <button className="nav-button edit-button" onClick={handleEdit}>
-              <Edit size={20} />
-            </button>
+            </Link>
+            {/* <h1>My Profile</h1> */}
           </div>
-          
-          {/* Profile Section */}
+
           <div className="profile-photo">
             <ImageWithFallback
               src={profileImage}
               alt="Profile"
               className="photo"
             />
+            
           </div>
-          <h2>Madison Smith</h2>
-          <p>ID: 200-000</p>
+          <Link to="/profile/edit" className="nav-button edit-button">
+              <Edit size={20} />
+            </Link>
+          {/* <h2>Madison Smith</h2>
+          <p>ID: 200-000</p> */}
         </div>
 
         <div className="action-buttons">
           <div className="button-grid">
-            <button className="action-button">
+            <Link to="/profile/edit" className="action-button">
               <User className="icon" />
               <span>Profile</span>
-            </button>
-            <button className="action-button">
+            </Link>
+            <Link to="/profile/wishlist" className="action-button">
               <Heart className="icon" />
               <span>Wishlist</span>
-            </button>
-            <button className="action-button">
+            </Link>
+            <Link to="/profile/myorders" className="action-button">
               <ShoppingBag className="icon" />
               <span>My Orders</span>
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -89,17 +83,16 @@ export default function Profile() {
           {menuItems.map((item, index) => {
             const Icon = item.icon;
             return (
-              <button key={index} className="menu-item">
+              <Link key={index} to={item.path} className="menu-item">
                 <div className="icon-circle">
                   <Icon className="menu-icon" />
                 </div>
                 <span>{item.label}</span>
-              </button>
+              </Link>
             );
           })}
         </div>
       </div>
-      
     </div>
   );
 }

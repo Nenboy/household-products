@@ -1,26 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import './Profile.css';
-const Logout = ({ onNavigate }) => {
+import { useNavigate } from 'react-router-dom';
+
+const Logout = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Show popup when component mounts
     setShowPopup(true);
   }, []);
 
   const handleCancel = () => {
     setShowPopup(false);
     setTimeout(() => {
-      onNavigate('profile');
+      navigate('/profile');
     }, 300);
   };
 
   const handleConfirm = () => {
     setShowPopup(false);
-    // Here you would implement actual logout logic
+    // Optional: add actual logout logic here (e.g., clear auth token)
     alert('Logged out successfully!');
     setTimeout(() => {
-      onNavigate('profile');
+      navigate('/profile');
     }, 300);
   };
 
