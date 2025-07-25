@@ -3,16 +3,17 @@ import BestSellerCard from "../assets/BestSellerCard";
 import Categories from "../assets/Categories";
 import Collection from "../assets/Collection";
 import PromoBanner from "../assets/Promo";
+import BottomNav from "../../components/Navbar";
 
 
 function Homepage() {
   return (
-    <div className="homepage">
+    <div >
       <PromoBanner />
       <Categories />
       <BestSellerCard />
       <Collection />
-      {/* <BottomNav /> */}
+      <BottomNav />
     </div>
   );
 }

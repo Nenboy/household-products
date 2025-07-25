@@ -65,7 +65,7 @@ function PromoBanner() {
               autoFocus
             />
             <button
-              onClick={() => setShowFilter(true)}
+              onClick={() => setShowFilter(false)}
               className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center bg-[#F4B5A4] w-8 h-8 text-[#4B4544] rounded-[30px]"
             >
               {/* Filter Icon */}
