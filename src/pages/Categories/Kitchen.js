@@ -12,7 +12,7 @@ const kitchenProducts = [
   {
     name: 'Stainless Steel Refrigerator',
     price: 1200.00,
-    image: '/Steel-refrigerator.png',
+    image: '/Steel-refridgerator.png',
     category: 'Kitchen',
     description: 'Energy efficient fridge with modern design.',
   },
