@@ -1,21 +1,20 @@
 /* profile */
 .app {
   min-height: 100vh;
-  background-color: #f9fafb;
-  max-width: 420px;
   margin: 0 auto;
+   max-width: 24rem;      /* max-w-sm = 384px */
+  width: 100%;           /* w-full */
+  margin-left: auto;     /* mx-auto */
+  margin-right: auto;
+  padding: 1rem;         /* p-4 = 16px */
 }
 
 .profile-container {
-  min-height: 100vh;
-  background-color: #f9fafb;
-}
-
-.header {
-  background-color: #ffffff;
-  padding: 16px;
-  text-align: center;
-  border-bottom: 1px solid #e5e7eb;
+   max-width: 24rem;      /* max-w-sm = 384px */
+  width: 100%;           /* w-full */
+  margin-left: auto;     /* mx-auto */
+  margin-right: auto;
+  padding: 1rem;         /* p-4 = 16px */
 }
 
 .top-nav {
@@ -46,9 +45,9 @@
   transition: background-color 0.2s;
 }
 
-.nav-button:hover {
+/* .nav-button:hover {
   background-color: #f3f4f6;
-}
+} */
 
 .profile-photo {
   margin-bottom: 16px;
@@ -82,7 +81,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
-  background-color: #fce7f3;
+  background-color: #F4B5A4;
   border-radius: 16px;
   padding: 16px;
 }
@@ -118,7 +117,7 @@
 }
 
 .menu {
-  padding: 0 16px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -128,8 +127,8 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 16px;
-  background-color: #fce7f3;
+  padding: 8px;
+  background-color:#F4B5A4;
   border: none;
   border-radius: 16px;
   cursor: pointer;
@@ -417,10 +416,11 @@ body {
 }
 
 .page {
-  padding: 20px;
-  min-height: calc(100vh - 80px);
-  background-color: inherit;
-  color: inherit;
+   max-width: 24rem;      /* max-w-sm = 384px */
+  width: 100%;           /* w-full */
+  margin-left: auto;     /* mx-auto */
+  margin-right: auto;
+  padding: 1rem; 
 }
 
 .page-header {

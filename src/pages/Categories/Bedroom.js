@@ -27,8 +27,8 @@ const bedroomProducts = [
 
 const Bedroom = ({ onAddToCart, onToggleWishlist, wishlistItems }) => {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <h1 className="text-xl font-semibold px-4 py-3">Bedroom</h1>
+    <div className="relative max-w-sm w-full mx-auto p-0">
+      <h1 className="text-lg text-[#D98A76] text-center font-semibold px-4 py-3">Bedroom</h1>
       <ProductGrid
         products={bedroomProducts}
         onAddToCart={onAddToCart}
