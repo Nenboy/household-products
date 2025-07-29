@@ -90,8 +90,8 @@ function App() {
         <Route path="/profile/edit" element={<EditProfile />} />
         <Route path="/profile/settings" element={<Settings />} />
         <Route path="/profile/myorders" element={<MyOrders />} />
-        <Route path="/profile/notifications" element={<Notifications />} />
-        <Route path="/profile/paymentmethods" element={<PaymentMethods />} />
+        <Route path="/profile/notification" element={<Notifications />} />
+        <Route path="/profile/payment-methods" element={<PaymentMethods />} />
         <Route path="/profile/logout" element={<Logout />} />
         <Route path="/categories" element={<Categories />} />
       </Routes>
