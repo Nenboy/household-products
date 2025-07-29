@@ -1,130 +1,54 @@
-import React, { useState } from 'react';
-import { Heart, Home, Search, User, ShoppingBag, ArrowLeft, Plus } from "lucide-react";
-import "./Wishlist.css"
-const mockFurnitureItems = [
-  {
-    id: 1,
-    name: "Slipper Room",
-    description: "In shaping future, while being a high quality one.",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
-    price: "$85"
-  },
-  {
-    id: 2,
-    name: "Kitchen Storage",
-    description: "In shaping future, while being a high quality one.",
-    image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=300&fit=crop",
-    price: "$42"
-  },
-  {
-    id: 3,
-    name: "Bedroom Dresser",
-    description: "In shaping future, while being a high quality one.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop",
-    price: "$120"
-  },
-  {
-    id: 4,
-    name: "Blue Table Lamp",
-    description: "In shaping future, while being a high quality one.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
-    price: "$25"
-  },
-  {
-    id: 5,
-    name: "Cowal Seat",
-    description: "In shaping future, while being a high quality one.",
-    image: "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
-    price: "$78"
-  }
-];
+import React from "react";
+import { ProductCard } from "../../components/ProductCard";
 
-export default function Wishlist () {
-  const [currentScreen, setCurrentScreen] = useState('empty');
-  const [activeTab, setActiveTab] = useState('wishlist');
+/* ------------- SVG illustration ------------- */
+const WishlistSvg = () => (
+  <svg
+    width="160"
+    height="160"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="mx-auto mb-4"
+  >
+    <path
+      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+      stroke="#D98A76"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
-  const renderHeader = (title, showBack = false) => (
-    <header className="app-header">
-      <div className="header-left">
-        {showBack ? (
-          <button onClick={() => setCurrentScreen('empty')} className="back-button">
-            <ArrowLeft size={20} />
-          </button>
-        ) : (
-          <div className="menu-dots">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        )}
-      </div>
-      <h1 className="header-title">{title}</h1>
-      <div className="header-right">
-        <div className="profile-circle"></div>
-      </div>
-    </header>
-  );
-
-  const renderBottomNav = () => (
-    <nav className="bottom-nav">
-      <button 
-        className={`nav-item ${activeTab === 'home' ? 'active' : ''}`}
-        onClick={() => setActiveTab('home')}
-      >
-        <Home size={20} />
-      </button>
-      <button 
-        className={`nav-item ${activeTab === 'search' ? 'active' : ''}`}
-        onClick={() => setActiveTab('search')}
-      >
-        <Search size={20} />
-      </button>
-      <button 
-        className={`nav-item ${activeTab === 'wishlist' ? 'active' : ''}`}
-        onClick={() => setActiveTab('wishlist')}
-      >
-        <Heart size={20} />
-      </button>
-      <button 
-        className={`nav-item ${activeTab === 'bag' ? 'active' : ''}`}
-        onClick={() => setActiveTab('bag')}
-      >
-        <ShoppingBag size={20} />
-      </button>
-      <button 
-        className={`nav-item ${activeTab === 'profile' ? 'active' : ''}`}
-        onClick={() => setActiveTab('profile')}
-      >
-        <User size={20} />
-      </button>
-    </nav>
-  );
-
-  const renderEmptyState = () => (
-    <div className="screen">
-      {renderHeader("Wishlist")}
-      <main className="main-content empty-state">
-        <div className="empty-icon">
-          <Heart size={120} />
-        </div>
-        <div className="empty-text">
-          <h2>Your Wishlist is</h2>
-          <h2>Empty.</h2>
-        </div>
-        <button 
-          className="create-button"
-          onClick={() => setCurrentScreen('create')}
-        >
-          Start Creating
-        </button>
-      </main>
-    </div>
-  );
-
-
+/* ------------- Page ------------- */
+const Wishlist = ({ wishlistItems, onAddToCart, onToggleWishlist }) => {
   return (
-    <div className="app">
-      {currentScreen === 'empty' && renderEmptyState()}
+    <div className="max-w-sm w-full mx-auto p-4">
+      <h1 className="text-lg text-[#D98A76] text-center font-semibold mb-4">
+        My Wishlist
+      </h1>
+
+      {wishlistItems.length === 0 ? (
+        <div className="flex flex-col items-center">
+          <WishlistSvg />
+          <p className="text-gray-500 text-center">Your wishlist is empty.</p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {wishlistItems.map((product, idx) => (
+            <ProductCard
+              key={idx}
+              product={product}
+              onAddToCart={onAddToCart}
+              onToggleWishlist={onToggleWishlist}
+              isInWishlist={true}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
-}
+};
+
+export default Wishlist;

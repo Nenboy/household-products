@@ -72,7 +72,7 @@ const handleBack = () => {
               <Heart className="icon" />
               <span>Wishlist</span>
             </Link>
-            <Link to="/profile/myorders" className="action-button">
+            <Link to="/cart" className="action-button">
               <ShoppingBag className="icon" />
               <span>My Orders</span>
             </Link>
