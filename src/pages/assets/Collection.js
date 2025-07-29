@@ -21,15 +21,15 @@ function ChairCard({ name, price, image, description }) {
       <img
         src={image}
         alt={name}
-        className="w-[163px] h-[142px] object-cover overflow-hidden relative -scale-x-100 left-0 top-0"
+        className="w-[139px] h-[142px] object-cover overflow-hidden relative -scale-x-100 left-0 top-0"
       />
-      <h3 className="w-[151px] h-[17px] font-[500] text-[15px] leading-[22px] capitalize text-[#4B4544] flex items-center flex-none order-1 grow-0">
+      <h3 className="w-[139px] h-[17px] font-[500] text-[15px] leading-[22px] capitalize text-[#4B4544] flex items-center flex-none order-1 grow-0">
         {name}
       </h3>
       <p className="text-[12px] leading-[15px] text-[#4B4544]">
         {description}
       </p>
-      <div className="w-[153px] h-0 border border-[#F4B5A4] border-[0.5px] flex-none order-3 grow-0"></div>
+      <div className="w-[139px] h-0 border border-[#F4B5A4] border-[0.5px] flex-none order-3 grow-0"></div>
 
       <div className="card-footer flex items-center justify-between">
         <span className="price">{price}</span>
@@ -44,7 +44,7 @@ function ChairCard({ name, price, image, description }) {
 
 function Collection() {
   return (
-    <div className="max-w-sm w-full mx-auto p-4">
+    <div className="max-w-sm w-full mx-auto p-4 pb-20">
       <h2 className="text-[18px] font-semibold text-[#D98A76] mb-4">New Collection</h2>
 
       <div className="flex flex-row gap-[23px]">

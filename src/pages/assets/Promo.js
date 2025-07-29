@@ -151,7 +151,7 @@ function PromoBanner() {
 
       {/* Promo Image Carousel */}
       <div className="relative">
-        <Link to="/specialoffers">
+        <Link to="/">
           <img
             src={images[currentIndex]}
             alt="Sofa"
