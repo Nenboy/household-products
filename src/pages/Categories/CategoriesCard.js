@@ -62,7 +62,7 @@ const BedroomCategory = () => {
 
         {/* Right Column */}
         <div className="flex flex-col space-y-4">
-          <Link to="/assets//categories/livingroom">
+          <Link to="/assets/Categories/livingroom">
             <div className="flex justify-center items-center bg-[#F4B5A4] rounded-[15px] h-36 text-sm text-white text-center">
               Living Room
             </div>

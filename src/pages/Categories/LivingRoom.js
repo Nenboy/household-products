@@ -5,21 +5,21 @@ const livingRoomProducts = [
   {
     name: 'Luxury Sofa',
     price: 250.00, // ✅ fixed
-    image: 'luxury-sofa.jpg',
+    image: '/Sofa.png',
     category: 'Living Room',
     description: 'A comfortable luxury sofa for your living room.',
   },
   {
     name: 'Wooden Coffee Table',
     price: 120.00, // ✅ fixed
-    image: 'coffee-table.jpg',
+    image: '/Coffee-table.png',
     category: 'Living Room',
     description: 'Elegant coffee table made of solid wood.',
   },
   {
     name: 'Leather Armchair',
     price: 180.00, // ✅ fixed
-    image: 'armchair.jpg',
+    image: '/Leatherarm-Chair.png',
     category: 'Living Room',
     description: 'Stylish and cozy armchair with leather finish.',
   },
