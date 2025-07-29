@@ -85,6 +85,8 @@ function App() {
         <Route path="/cart" element={<CartPage cartItems={cartItems} />} />
 
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/wishlist" element={<Wishlist />} />
+
         <Route path="/profile/edit" element={<EditProfile />} />
         <Route path="/profile/settings" element={<Settings />} />
         <Route path="/profile/myorders" element={<MyOrders />} />
