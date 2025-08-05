@@ -18,6 +18,7 @@ import Logout from './pages/Profile/Logout';
 import Wishlist from './pages/Wishlist/Wishlist';
 import CartPage from './pages/Cart/CartPage';
 import Categories from './pages/Categories/Categories';
+import AuthForm from './pages/Setup/Login';
 
 function App() {
   // ✅ Global cart and wishlist state
@@ -43,6 +44,8 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Homepage />} />
+
+        <Route path="/login" element={<AuthForm />} />
         
         {/* ✅ Pass the shared state & handlers to each category */}
         <Route
