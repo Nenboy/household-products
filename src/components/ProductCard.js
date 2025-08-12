@@ -11,7 +11,7 @@ export const ProductCard = ({ product, onAddToCart, onToggleWishlist, isInWishli
           className="w-full h-full object-cover"
         />
         <button
-          onClick={() => onToggleWishlist(product.id)}
+          onClick={() => onToggleWishlist(product)}
           className={`absolute top-3 right-3 p-2 rounded-full ${
             isInWishlist ? 'bg-red-100 text-red-500' : 'bg-white text-gray-400'
           } hover:bg-red-100 hover:text-red-500 transition-colors`}

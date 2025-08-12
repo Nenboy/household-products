@@ -1,7 +1,7 @@
 import React from "react";
 import { ProductCard } from "../../components/ProductCard";
+import { useCartWishlist } from "../../context/CartWishlistContext";
 
-/* ------------- SVG illustration ------------- */
 const WishlistSvg = () => (
   <svg
     width="160"
@@ -21,8 +21,24 @@ const WishlistSvg = () => (
   </svg>
 );
 
-/* ------------- Page ------------- */
-const Wishlist = ({ wishlistItems, onAddToCart, onToggleWishlist }) => {
+const Wishlist = () => {
+  const { state, dispatch } = useCartWishlist();
+  const { wishlistItems, cartItems } = state;
+
+  const onAddToCart = (product) => {
+    if (!cartItems.find((item) => item.id === product.id)) {
+      dispatch({ type: "ADD_TO_CART", payload: { ...product, quantity: 1 } });
+    }
+  };
+
+  const onToggleWishlist = (product) => {
+    if (wishlistItems.find((item) => item.id === product.id)) {
+      dispatch({ type: "REMOVE_FROM_WISHLIST", payload: product.id });
+    } else {
+      dispatch({ type: "ADD_TO_WISHLIST", payload: product });
+    }
+  };
+
   return (
     <div className="max-w-sm w-full mx-auto p-4">
       <h1 className="text-lg text-[#D98A76] text-center font-semibold mb-4">
@@ -36,9 +52,9 @@ const Wishlist = ({ wishlistItems, onAddToCart, onToggleWishlist }) => {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {wishlistItems.map((product, idx) => (
+          {wishlistItems.map((product) => (
             <ProductCard
-              key={idx}
+              key={product.id}
               product={product}
               onAddToCart={onAddToCart}
               onToggleWishlist={onToggleWishlist}
