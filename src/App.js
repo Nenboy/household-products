@@ -19,6 +19,8 @@ import Wishlist from './pages/Wishlist/Wishlist';
 import CartPage from './pages/Cart/CartPage';
 import Categories from './pages/Categories/Categories';
 import CheckoutPage from './pages/Cart/CheckoutPage';
+import PaymentSuccessPage from './pages/Cart/PaymentSucessPage';
+import PaymentErrorPage from './pages/Cart/PaymentErrorPage';
 
 function App() {
   // ✅ Global cart and wishlist state
@@ -85,6 +87,10 @@ function App() {
         <Route path="/wishlist" element={<Wishlist wishlistItems={wishlistItems} />} />
         <Route path="/cart" element={<CartPage cartItems={cartItems} />} />
         <Route path="/checkout" element={<CheckoutPage/>} />
+        <Route path="/payment-success" element={<PaymentSuccessPage />} />
+        <Route path="/payment-error" element={<PaymentErrorPage />} />
+
+
 
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile/wishlist" element={<Wishlist />} />

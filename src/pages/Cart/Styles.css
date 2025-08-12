@@ -101,7 +101,7 @@ body {
 .checkout-btn, .pay-now-btn {
   width: 100%;
   padding: 12px;
-  background: #FAF0E6;
+  background: #f44336;
   color: white;
   border: none;
   border-radius: 4px;
@@ -178,12 +178,12 @@ body {
 }
 
 .try-again-btn {
-  background: #FAF0E6;
+  background: #f44336;
   color: white;
 }
 
 .home-btn {
-  background: #FAF0E6;
+  background: #f44336;
   color: white;
 }
 
