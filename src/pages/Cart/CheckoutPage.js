@@ -1,12 +1,15 @@
-// src/pages/CheckoutPage.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCartWishlist } from '../../context/CartWishlistContext';
 import OrderSummary from '../../components/OrderSummary';
 import ShippingAddress from '../../components/ShippingAddress';
 import PaymentMethods from '../../components/PaymentMethods';
 import './Styles.css';
 
 const CheckoutPage = () => {
+  const { state, dispatch } = useCartWishlist();
+  const { cartItems } = state;
+
   const [shippingAddress, setShippingAddress] = useState({
     fullName: '',
     address: '',
@@ -23,11 +26,11 @@ const CheckoutPage = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real app, you would process payment here
-    // For demo, we'll randomly succeed or fail
+    // Demo random success/fail
     const isSuccess = Math.random() > 0.3;
     
     if (isSuccess) {
+      dispatch({ type: 'CLEAR_CART' });
       navigate('/payment-success');
     } else {
       navigate('/payment-error');
@@ -78,9 +81,8 @@ const CheckoutPage = () => {
             />
             
             <OrderSummary 
-              deliveryPrice={
-                deliveryOptions.find(o => o.id === deliveryOption)?.price || 0
-              }
+              cartItems={cartItems}
+              deliveryPrice={deliveryOptions.find(o => o.id === deliveryOption)?.price || 0}
             />
             
             <button type="submit" className="pay-now-btn">

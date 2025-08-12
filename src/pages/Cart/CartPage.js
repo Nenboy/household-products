@@ -1,40 +1,35 @@
-// src/pages/CartPage.js
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import CartItem from '../../components/CartItem';
+import { useCartWishlist } from '../../context/CartWishlistContext';
 import './Styles.css';
 
 const CartPage = () => {
-  const [cartItems, setCartItems] = useState([
-    // Sample data - in a real app, this would come from your state management
-    // { id: 1, name: 'Refrigerator', price: 899.99, quantity: 1, image: 'fridge.jpg' },
-    // { id: 2, name: 'Microwave', price: 129.99, quantity: 2, image: 'microwave.jpg' }
-  ]);
-  
+  const { state, dispatch } = useCartWishlist();
+  const { cartItems } = state;
+
   const navigate = useNavigate();
-  
-  const taskFee = 5.00;
-  const deliveryFee = 15.00;
-  
-  const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+  const taskFee = 5.0;
+  const deliveryFee = 15.0;
+
+  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const grandTotal = subtotal + taskFee + deliveryFee;
-  
+
   const updateQuantity = (id, newQuantity) => {
     if (newQuantity < 1) return;
-    
-    setCartItems(cartItems.map(item => 
-      item.id === id ? { ...item, quantity: newQuantity } : item
-    ));
+
+    dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity: newQuantity } });
   };
-  
+
   const removeItem = (id) => {
-    setCartItems(cartItems.filter(item => item.id !== id));
+    dispatch({ type: 'REMOVE_FROM_CART', payload: id });
   };
-  
+
   return (
     <div className="cart-page">
       <h1>My Cart</h1>
-      
+
       {cartItems.length === 0 ? (
         <div className="empty-cart">
           <div className="cart-icon-bg"></div>
@@ -43,8 +38,8 @@ const CartPage = () => {
       ) : (
         <div className="cart-with-items">
           <div className="cart-items">
-            {cartItems.map(item => (
-              <CartItem 
+            {cartItems.map((item) => (
+              <CartItem
                 key={item.id}
                 item={item}
                 onUpdateQuantity={updateQuantity}
@@ -52,7 +47,7 @@ const CartPage = () => {
               />
             ))}
           </div>
-          
+
           <div className="cart-summary">
             <h3>Order Summary</h3>
             <div className="summary-row">
@@ -71,8 +66,8 @@ const CartPage = () => {
               <span>Grand Total:</span>
               <span>${grandTotal.toFixed(2)}</span>
             </div>
-            
-            <button 
+
+            <button
               className="checkout-btn"
               onClick={() => navigate('/checkout')}
             >

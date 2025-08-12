@@ -18,6 +18,7 @@ import Logout from './pages/Profile/Logout';
 import Wishlist from './pages/Wishlist/Wishlist';
 import CartPage from './pages/Cart/CartPage';
 import Categories from './pages/Categories/Categories';
+import CheckoutPage from './pages/Cart/CheckoutPage';
 
 function App() {
   // ✅ Global cart and wishlist state
@@ -83,6 +84,7 @@ function App() {
         {/* Pass wishlistItems if needed in Wishlist page too */}
         <Route path="/wishlist" element={<Wishlist wishlistItems={wishlistItems} />} />
         <Route path="/cart" element={<CartPage cartItems={cartItems} />} />
+        <Route path="/checkout" element={<CheckoutPage/>} />
 
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile/wishlist" element={<Wishlist />} />

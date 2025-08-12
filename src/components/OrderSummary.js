@@ -1,14 +1,14 @@
-// src/components/OrderSummary.js
 import React from 'react';
 
-const OrderSummary = ({ deliveryPrice }) => {
-  // In a real app, you might get these from Redux or context
-  const cartItems = []; // Sample - replace with actual cart items
+const OrderSummary = ({ cartItems = [], deliveryPrice = 0 }) => {
   const taskFee = 5.00;
-  
-  const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+  const subtotal = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
   const grandTotal = subtotal + taskFee + deliveryPrice;
-  
+
   return (
     <div className="order-summary">
       <h3>Order Summary</h3>
