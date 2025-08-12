@@ -17,6 +17,7 @@ import PaymentMethods from './pages/Profile/PaymentMethods';
 import Logout from './pages/Profile/Logout';
 import Wishlist from './pages/Wishlist/Wishlist';
 import CartPage from './pages/Cart/CartPage';
+import TrackOrderPage from './pages/Cart/TrackOrderPage';
 import Categories from './pages/Categories/Categories';
 import CheckoutPage from './pages/Cart/CheckoutPage';
 import PaymentSuccessPage from './pages/Cart/PaymentSucessPage';
@@ -89,6 +90,7 @@ function App() {
         <Route path="/checkout" element={<CheckoutPage/>} />
         <Route path="/payment-success" element={<PaymentSuccessPage />} />
         <Route path="/payment-error" element={<PaymentErrorPage />} />
+        <Route path="/track-order" element={<TrackOrderPage />} />
 
 
 
